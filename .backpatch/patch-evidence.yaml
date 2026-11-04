@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 1.7.1-backpatch-00001
+release: 1.7.1-backpatch-00002
 baseline: v1.7+backpatch.baseline
 fixes:
   - cve: CVE-2020-13936
@@ -10,12 +10,11 @@ fixes:
     basis: adapted
     artifacts:
       - org.apache.velocity:velocity
-    note: New in this release; adapted onto 1.7; fixed at 1.7.1-backpatch-00001 (backpatch-velocity@e7314ea).
+    note: Carried from 1.7.1-backpatch-00001; ported onto 1.7; fixed at 1.7.1-backpatch-00001 (backpatch-velocity@e7314ea).
 tests:
-  commit: e7314ea49bbc1085a3fcf6d40d6279a883f0ad92
-  command: JAVA_HOME=<jdk-7> /bin/bash <alliance>/work/wave2/items/scripts/velocity-ant.sh suite <m2> 
-  runtime: Azul Zulu (Java 1.7.0_352), Apache Ant 1.9.16, macOS x86_64 under Rosetta 2
-  report: velocity-1.7.1-backpatch-00001-tests.zip
-  report_sha256: aa2b68db0aa435f4595aec870816de5512cf271e96211c76f9185a60eaa1b23e
+  commit: 4c680fd29ac45b44f5c286a078280363d475d679
+  command: none in this repository
+  runtime: none, no build or test ran for this release
+  report: carried, see the evidence of the release named in the note
   result: pass
-  note: the full suite at the tested commit, 505 tests run, 0 failed, 0 skipped; the regression tests for CVE-2020-13936 are SecureIntrospectionTestCase
+  note: "this release is a tooling update, it carries no new fix, nothing ran here; its test provenance is tooling-2026-11-03-velocity-1.7: a tooling update of moderne-backpatch-alliance/backpatch-velocity at v1.7.1-backpatch-00001, whose .backpatch/patch-evidence.yaml says what ran"
