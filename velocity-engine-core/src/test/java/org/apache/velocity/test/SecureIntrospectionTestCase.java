@@ -33,6 +33,9 @@ import org.apache.velocity.util.introspection.SecureUberspector;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -138,9 +141,9 @@ public class SecureIntrospectionTestCase extends BaseTestCase
 
     private boolean doesStringEvaluate(VelocityEngine ve, Context c, String inputString) throws ParseErrorException, MethodInvocationException, ResourceNotFoundException, IOException
     {
-    	// assume that an evaluation is bad if the input and result are the same (e.g. a bad reference)
-    	// or the result is an empty string (e.g. bad #foreach)
-    	Writer w = new StringWriter();
+        // assume that an evaluation is bad if the input and result are the same (e.g. a bad reference)
+        // or the result is an empty string (e.g. bad #foreach)
+        Writer w = new StringWriter();
         ve.evaluate(c, w, "foo", inputString);
         String result = w.toString();
         return (result.length() > 0 ) &&  !result.equals(inputString);
@@ -163,15 +166,14 @@ public class SecureIntrospectionTestCase extends BaseTestCase
     }
 
 
-	public Collection getCollection()
-	{
-		Collection c = new HashSet();
-		c.add("aaa");
-		c.add("bbb");
-		c.add("ccc");
-		return c;
-	}
-
+    public Collection getCollection()
+    {
+        Collection c = new HashSet();
+        c.add("aaa");
+        c.add("bbb");
+        c.add("ccc");
+        return c;
+    }
 }
 
 
