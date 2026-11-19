@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: moderne
-release: 2.2.1-backpatch-00001
+release: 2.2.1-backpatch-00002
 baseline: v2.2+backpatch.baseline
 fixes:
   - cve: CVE-2020-13936
@@ -10,12 +10,11 @@ fixes:
     basis: adapted
     artifacts:
       - org.apache.velocity:velocity-engine-core
-    note: New in this release; ported onto 2.2; fixed at 2.2.1-backpatch-00001 (backpatch-velocity@ae79d88).
+    note: Carried from 2.2.1-backpatch-00001; ported onto 2.2; fixed at 2.2.1-backpatch-00001 (backpatch-velocity@ae79d88).
 tests:
-  commit: ae79d88b111e2a22dd968f326bc24679142405b2
-  command: mvn -B -T1 -pl velocity-engine-core -am -Dmaven.test.failure.ignore=true clean test
-  runtime: openjdk version 1.8.0_382, Apache Maven 3.9.16
-  report: velocity-engine-core-2.2.1-backpatch-00001-tests.zip
-  report_sha256: 967c9a54824c18ff4aab203108b8ef2b1da567602c6d1a304cf66c9a1b10ac9b
+  commit: d4a9f22d2a80f7ef1b7bd0260c6bb45c4922cc75
+  command: none in this repository
+  runtime: none, no build or test ran for this release
+  report: carried, see the evidence of the release named in the note
   result: pass
-  note: 490 tests at the patch commit, 0 of them skipped by the suite, 0 failed, 0 errors.
+  note: "this release is a tooling update, it carries no new fix, nothing ran here; its test provenance is tooling-2026-11-19-velocity-engine-core-2.2: a tooling update of moderne-backpatch-alliance/backpatch-velocity at v2.2.1-backpatch-00001, whose .backpatch/patch-evidence.yaml says what ran"
